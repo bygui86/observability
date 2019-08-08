@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: server-app
+  namespace: black-sheep
+  labels:
+    app: server-app
+    group: black-sheep
+data:
+  SPRING_PROFILES_ACTIVE: kube
+  HEAP_SIZE: 256m
+  META_SIZE: 300m
+  POSTGRESQL_HOST: postgresql
+  POSTGRESQL_PORT: "5432"
+  POSTGRESQL_SCHEMA: server-app

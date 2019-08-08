@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: server-app
+  namespace: black-sheep
+  labels:
+    app: server-app
+    group: black-sheep
+spec:
+  selector:
+    app: server-app
+    group: black-sheep
+  ports:
+    - name: http
+      port: 8080
+      targetPort: 8080
+      protocol: TCP
