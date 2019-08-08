@@ -4,6 +4,32 @@ items:
   kind: RoleBinding
   metadata:
     name: prometheus-k8s
+    namespace: white-rabbit
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: Role
+    name: prometheus-k8s
+  subjects:
+  - kind: ServiceAccount
+    name: prometheus-k8s
+    namespace: monitoring
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: RoleBinding
+  metadata:
+    name: prometheus-k8s
+    namespace: black-sheep
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: Role
+    name: prometheus-k8s
+  subjects:
+  - kind: ServiceAccount
+    name: prometheus-k8s
+    namespace: monitoring
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: RoleBinding
+  metadata:
+    name: prometheus-k8s
     namespace: default
   roleRef:
     apiGroup: rbac.authorization.k8s.io

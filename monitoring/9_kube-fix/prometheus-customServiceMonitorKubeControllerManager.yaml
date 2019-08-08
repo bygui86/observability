@@ -1,0 +1,23 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: kube-controller-manager
+  namespace: kube-system
+  labels:
+    k8s-app: kube-controller-manager
+spec:
+  jobLabel: k8s-app
+  endpoints:
+    - port: http-metrics
+      interval: 30s
+      # metricRelabelings:
+      #   - action: drop
+      #     regex: etcd_(debugging|disk|request|server).*
+      #     sourceLabels:
+      #     - __name__
+  namespaceSelector:
+    matchNames:
+      - kube-system
+  selector:
+    matchLabels:
+      k8s-app: kube-controller-manager
