@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: client-app
+  namespace: white-rabbit
+  # annotations:
+  #   nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+    - host: client-app.white-rabbit.info
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: client-app
+              servicePort: 8080

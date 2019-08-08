@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: client-app
+  namespace: white-rabbit
+  labels:
+    app: client-app
+    group: white-rabbit
+data:
+  SPRING_PROFILES_ACTIVE: kube
+  HEAP_SIZE: 256m
+  META_SIZE: 300m
+  SERVER_HOST: server-app
+  SERVER_PORT: "8080"
+  TRACING_PROBABILITY: "1.0"
+  TRACING_HOST: zipkin.tracing.svc.cluster.local
+  TRACING_PORT: "9411"

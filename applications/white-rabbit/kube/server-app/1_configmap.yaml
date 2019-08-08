@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: server-app
+  namespace: white-rabbit
+  labels:
+    app: server-app
+    group: white-rabbit
+data:
+  SPRING_PROFILES_ACTIVE: kube
+  HEAP_SIZE: 256m
+  META_SIZE: 300m
+  POSTGRESQL_HOST: postgresql
+  POSTGRESQL_PORT: "5432"
+  POSTGRESQL_SCHEMA: server-app
+  TRACING_PROBABILITY: "1.0"
+  TRACING_HOST: zipkin.tracing.svc.cluster.local
+  TRACING_PORT: "9411"

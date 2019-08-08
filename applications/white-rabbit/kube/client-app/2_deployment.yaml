@@ -1,0 +1,64 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: client-app
+  namespace: white-rabbit
+  labels:
+    app: client-app
+    group: white-rabbit
+spec:
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 25%
+      maxSurge: 1
+  selector:
+    matchLabels:
+      app: client-app
+      group: white-rabbit
+  template:
+    metadata:
+      labels:
+        app: client-app
+        group: white-rabbit
+    spec:
+      restartPolicy: Always
+      containers:
+        - name: client-app
+          image: white-rabbit/client-app-java:latest
+          imagePullPolicy: IfNotPresent
+          envFrom:
+            - configMapRef:
+                name: client-app
+          ports:
+            - name: http
+              containerPort: 8080
+            - name: http-metrics
+              containerPort: 8090
+          resources:
+            limits:
+              cpu: 750m
+              memory: 512Mi
+            requests:
+              cpu: 500m
+              memory: 256Mi
+          livenessProbe:
+            httpGet:
+              path: /actuator/health
+              port: 8090
+            initialDelaySeconds: 60
+            periodSeconds: 10
+            timeoutSeconds: 3
+            successThreshold: 1
+            failureThreshold: 3
+          readinessProbe:
+            httpGet:
+              path: /actuator/health
+              port: 8090
+            initialDelaySeconds: 10
+            periodSeconds: 10
+            timeoutSeconds: 3
+            successThreshold: 1
+            failureThreshold: 3
+      terminationGracePeriodSeconds: 30
