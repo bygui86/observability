@@ -29,20 +29,20 @@ cd -
 
 ## Deploy
 
-### pre-requisites running on Minikube
-
-```
-[OPTIONAL] kubectl apply -f kube/nginx-ingress-controller.yaml
-```
-
-### applications
+### Applications
 
 ```
 kubectl apply -f kube/namespace.yaml
 kubectl apply -f kube/postgresql
 kubectl apply -f kube/server-app
 kubectl apply -f kube/client-app
-[OPTIONAL] kubectl apply -f kube/ingress.yaml
+kubectl apply -f kube/grafana-update
+```
+
+`OPTIONAL if running on Minikube`
+```
+kubectl apply -f kube/ingress
+kubectl delete pod -l app.kubernetes.io/name=nginx-ingress-controller
 ```
 
 ---

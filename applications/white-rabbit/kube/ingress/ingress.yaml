@@ -3,14 +3,14 @@ kind: Ingress
 metadata:
   name: client-app
   namespace: white-rabbit
-  # annotations:
-  #   nginx.ingress.kubernetes.io/rewrite-target: /
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
     - host: client-app.white-rabbit.info
       http:
         paths:
-          - path: /
+          - path: /*
             backend:
               serviceName: client-app
               servicePort: 8080

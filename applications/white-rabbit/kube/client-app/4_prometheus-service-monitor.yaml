@@ -1,0 +1,22 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: client-app
+  namespace: white-rabbit
+  labels:
+    app: client-app
+    group: white-rabbit
+    prometheus: k8s
+spec:
+  selector:
+    matchLabels:
+      app: client-app
+      group: white-rabbit
+  namespaceSelector:
+    matchNames:
+      - white-rabbit
+  endpoints:
+    - port: http-metrics
+      path: /actuator/prometheus
+      interval: 10s
+      scrapeTimeout: 9s
