@@ -56,23 +56,23 @@ kubectl apply -f kube/client-app
 	```
 * Insert
 	```
-	http POST $BLACK_SHEEP_HOST:$BLACK_SHEEP_PORT/users email="matteo.baiguini@rabbit.com" name="Matteo Baiguini" age=33
-	http POST $BLACK_SHEEP_HOST:$BLACK_SHEEP_PORT/users email="john.doe@rabbit.com" name="John Doe" age=42
-	http POST $BLACK_SHEEP_HOST:$BLACK_SHEEP_PORT/users email="jane.doe@rabbit.com" name="Jane Doe" age=24
-	http POST $BLACK_SHEEP_HOST:$BLACK_SHEEP_PORT/users email="clint.eastwood@rabbit.com" name="Clint Eastwood" age=75
+	http POST $BLACK_SHEEP_HOST:$BLACK_SHEEP_PORT/apis/users email="matteo.baiguini@rabbit.com" name="Matteo Baiguini" age=33
+	http POST $BLACK_SHEEP_HOST:$BLACK_SHEEP_PORT/apis/users email="john.doe@rabbit.com" name="John Doe" age=42
+	http POST $BLACK_SHEEP_HOST:$BLACK_SHEEP_PORT/apis/users email="jane.doe@rabbit.com" name="Jane Doe" age=24
+	http POST $BLACK_SHEEP_HOST:$BLACK_SHEEP_PORT/apis/users email="clint.eastwood@rabbit.com" name="Clint Eastwood" age=75
 	```
 * Get
 	```
-	http $BLACK_SHEEP_HOST:$BLACK_SHEEP_PORT/users
-	http $BLACK_SHEEP_HOST:$BLACK_SHEEP_PORT/users/matteo.baiguini@rabbit.com
+	http $BLACK_SHEEP_HOST:$BLACK_SHEEP_PORT/apis/users
+	http $BLACK_SHEEP_HOST:$BLACK_SHEEP_PORT/apis/users/matteo.baiguini@rabbit.com
 	```
 * Update
 	```
-	USER_ID=$(http $BLACK_SHEEP_HOST:$BLACK_SHEEP_PORT/users/clint.eastwood@rabbit.com | jq ".id")
-	http PUT $BLACK_SHEEP_HOST:$BLACK_SHEEP_PORT/users id=$USER_ID email="clint.eastwood@rabbit.com" name="Clint Eastwood" age=89
+	USER_ID=$(http $BLACK_SHEEP_HOST:$BLACK_SHEEP_PORT/apis/users/clint.eastwood@rabbit.com | jq ".id")
+	http PUT $BLACK_SHEEP_HOST:$BLACK_SHEEP_PORT/apis/users id=$USER_ID email="clint.eastwood@rabbit.com" name="Clint Eastwood" age=89
 	```
 * Delete
 	```
-	http DELETE $BLACK_SHEEP_HOST:$BLACK_SHEEP_PORT/users/jane.doe@rabbit.com
-	http DELETE $BLACK_SHEEP_HOST:$BLACK_SHEEP_PORT/users
+	http DELETE $BLACK_SHEEP_HOST:$BLACK_SHEEP_PORT/apis/users/jane.doe@rabbit.com
+	http DELETE $BLACK_SHEEP_HOST:$BLACK_SHEEP_PORT/apis/users
 	```
