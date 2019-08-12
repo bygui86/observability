@@ -39,46 +39,46 @@ public class UserController {
 	@GetMapping
 	public List<User> getAll() {
 
-		log.info("Get all");
+//		log.info("Get all");
 		List<User> users = getUserRepo().findAll();
-		log.info("All users found: {}", users.size());
+//		log.info("All users found: {}", users.size());
 		return users;
 	}
 
 	@GetMapping("/{email}")
 	public User getByEmail(@PathVariable final String email) {
 
-		log.info("Get by email: {}", email);
+//		log.info("Get by email: {}", email);
 		User user = getUserRepo().findByEmail(email);
 		if(user == null) {
 			user = buildErrorUser(email);
 		}
-		log.info("User by email: {}", user);
+//		log.info("User by email: {}", user);
 		return user;
 	}
 
 	@PostMapping
 	public User insert(@RequestBody final User user) {
 
-		log.info("Insert new: {}", user);
+//		log.info("Insert new: {}", user);
 		User newUser = getUserRepo().save(user);
-		log.info("New user: {}", newUser);
+//		log.info("New user: {}", newUser);
 		return newUser;
 	}
 
 	@PutMapping
 	public User update(@RequestBody final User user) {
 
-		log.info("Update: {}", user);
+//		log.info("Update: {}", user);
 		User updUser = getUserRepo().save(user);
-		log.info("User updated: {}", updUser);
+//		log.info("User updated: {}", updUser);
 		return updUser;
 	}
 
 	@DeleteMapping("/{email}")
 	public void deleteByEmail(@PathVariable final String email) {
 
-		log.info("Delete by email: {}", email);
+//		log.info("Delete by email: {}", email);
 		final User user = getByEmail(email);
 		if(user.getId() != null) {
 			getUserRepo().deleteById(user.getId());
@@ -88,7 +88,7 @@ public class UserController {
 	@DeleteMapping
 	public void deleteAll() {
 
-		log.info("Delete all");
+//		log.info("Delete all");
 		getUserRepo().deleteAll();
 	}
 
@@ -97,18 +97,18 @@ public class UserController {
 	@GetMapping("/additional/{id}")
 	public User getById(@PathVariable final Long id) {
 
-		log.info("Get by id: {}", id);
+//		log.info("Get by id: {}", id);
 		User user = getUserRepo()
 				.findById(id)
 				.orElse(buildErrorUser(id));
-		log.info("User by id: {}", user);
+//		log.info("User by id: {}", user);
 		return user;
 	}
 
 	@DeleteMapping("/additional/{id}")
 	public void deleteById(@PathVariable final Long id) {
 
-		log.info("Delete by id: {}", id);
+//		log.info("Delete by id: {}", id);
 		getUserRepo().deleteById(id);
 	}
 

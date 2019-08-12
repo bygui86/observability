@@ -32,50 +32,50 @@ class UserController {
 	@GetMapping
 	public List<User> getAll() {
 
-		log.info("Get all users");
+//		log.info("Get all users");
 		List<User> users = getUserServiceClient().getAll();
-		log.info("All users found: {}", users.size());
+//		log.info("All users found: {}", users.size());
 		return users;
 	}
 
 	@GetMapping("/{email}")
 	public User getByEmail(@PathVariable final String email) {
 
-		log.info("Get by email: {}", email);
+//		log.info("Get by email: {}", email);
 		User user = getUserServiceClient().getByEmail(email);
-		log.info("User by email: {}", user);
+//		log.info("User by email: {}", user);
 		return user;
 	}
 
 	@PostMapping
 	public User insert(@RequestBody final User user) {
 
-		log.info("Insert new: {}", user);
+//		log.info("Insert new: {}", user);
 		User newUser = getUserServiceClient().insert(user);
-		log.info("New user: {}", newUser);
+//		log.info("New user: {}", newUser);
 		return newUser;
 	}
 
 	@PutMapping
 	public User update(@RequestBody final User user) {
 
-		log.info("Update: {}", user);
+//		log.info("Update: {}", user);
 		User updUser = getUserServiceClient().update(user);
-		log.info("User updated: {}", updUser);
+//		log.info("User updated: {}", updUser);
 		return updUser;
 	}
 
 	@DeleteMapping("/{email}")
 	public void deleteByEmail(@PathVariable final String email) {
 
-		log.info("Delete by email: {}", email);
+//		log.info("Delete by email: {}", email);
 		getUserServiceClient().deleteByEmail(email);
 	}
 
 	@DeleteMapping
 	public void deleteAll() {
 
-		log.info("Delete all");
+//		log.info("Delete all");
 		getUserServiceClient().deleteAll();
 	}
 
