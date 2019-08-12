@@ -1,13 +1,37 @@
 
 # Observability demos
 
-* [tracing](tracing)
-* [monitoring](monitoring)
-* [logging](logging)
-* [applications](applications)
-  * [black-sheep](applications/black-sheep)
-    * [server-app](applications/black-sheep/client-app-java)
-    * [client-app](applications/black-sheep/server-app)
-  * [white-rabbit](applications/white-rabbit)
-    * [server-app](applications/white-rabbit/client-app-java)
-    * [client-app](applications/white-rabbit/server-app)
+- [ ] [applications](applications)
+  - [x] [black-sheep](applications/black-sheep)
+    - [x] [server-app](applications/black-sheep/client-app-java)
+    - [x] [client-app](applications/black-sheep/server-app)
+  - [x] [white-rabbit](applications/white-rabbit)
+    - [x] [server-app](applications/white-rabbit/client-app-java)
+    - [x] [client-app](applications/white-rabbit/server-app)
+  - [ ] bookinfo
+  - [ ] shop
+- [ ] [tracing](tracing)
+  - [x] [jaeger all-in-one](tracing/jaeger-all-in-one)
+  - [ ] jaeger operator
+- [ ] [monitoring](monitoring)
+  - [x] prometheus operator
+  - [x] applications monitoring
+  - [ ] db monitoring
+  - [ ] tracing monitoring
+  - [ ] logging monitoring
+  - [ ] networking monitoring
+- [ ] [logging](logging)
+  - [x] [efk](logging/efk) - `TODO: improve elasticsearch and kibana versions`
+  - [ ] efk operator
+- [ ] networking
+  - [ ] ambassador
+  - [ ] traefik
+  - [ ] calico
+  - [ ] network policies
+- [ ] security
+  - [ ] kubernetes rbac
+  - [ ] falco (TBD)
+- [ ] tools
+  - [ ]	spekt8
+  - [ ]	weave-scope
+  - [ ]	kubeview
