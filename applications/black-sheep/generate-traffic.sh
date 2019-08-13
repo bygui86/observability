@@ -6,8 +6,8 @@ function stop() {
 	echo "** CTRL-C pressed **"
 	echo
 	echo "Stop generating traffic"
-	echo "    kill port-forward"
-	kill -9 $PORT_FORW_PID
+	# echo "    kill port-forward"
+	# kill -9 $PORT_FORW_PID
 	echo "    end loop"
 	WHILE_FLAG="false"
 	echo
