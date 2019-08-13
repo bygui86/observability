@@ -20,6 +20,7 @@
   - [ ] tracing monitoring
   - [ ] logging monitoring
   - [ ] networking monitoring
+  - [ ] tools monitoring
 - [ ] [logging](logging)
   - [x] [efk](logging/efk) - `TODO: improve elasticsearch and kibana versions`
   - [ ] efk operator
@@ -31,7 +32,6 @@
 - [ ] security
   - [ ] kubernetes rbac
   - [ ] falco (TBD)
-- [ ] tools
-  - [ ]	spekt8
-  - [ ]	weave-scope
-  - [ ]	kubeview
+- [x] [tools](tools)
+  - [x] [kubeview](tools/kube-view)
+  - [x] [weave-scope](tools/weave-scope)
