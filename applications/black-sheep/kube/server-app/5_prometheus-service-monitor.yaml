@@ -1,0 +1,22 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: server-app
+  namespace: black-sheep
+  labels:
+    app: server-app
+    group: black-sheep
+    prometheus: k8s
+spec:
+  selector:
+    matchLabels:
+      app: server-app
+      group: black-sheep
+  namespaceSelector:
+    matchNames:
+      - black-sheep
+  endpoints:
+    - port: http-metrics
+      path: /actuator/prometheus
+      interval: 10s
+      scrapeTimeout: 9s

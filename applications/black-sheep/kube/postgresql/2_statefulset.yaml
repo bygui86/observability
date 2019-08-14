@@ -107,7 +107,12 @@ spec:
           volumeMounts:
             - name: data-dir
               mountPath: /bitnami/postgresql
-      volumes:
-        - name: data-dir
-          persistentVolumeClaim:
-            claimName: postgresql
+  volumeClaimTemplates:
+    - metadata:
+        name: data-dir
+      spec:
+        accessModes:
+          - ReadWriteOnce
+        resources:
+          requests:
+            storage: 3G
